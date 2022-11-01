@@ -17,7 +17,7 @@ game.StarterGui:SetCore("SendNotification", {
 })
 game.StarterGui:SetCore("SendNotification", {
     Title = "Alert!";
-    Text = "This is only V1, dont expect big feutures.";
+    Text = "This is only V1, dont expect big features.";
 })
 
 --Local Player
