@@ -40,16 +40,6 @@ PlayerSection:NewTextBox("Teleport to", "Teleport to selected player.", function
 p1.CFrame = game.Players[p2].Character.HumanoidRootPart.CFrame
 end)
 
-PlayerSection:NewToggle("Toggle Superhuman", "Superhuman", function(Superhuman)
-    if Superhuman then
-    	Game.Players.LocalPlayer.Character.Humanoid.WalkSPeed = 50
-        Game.Players.LocalPlayer.Character.Humanoid.JumpPower = 150
-    else
-            	Game.Players.LocalPlayer.Character.Humanoid.WalkSPeed = 18
-        Game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-    end
-end)
-
 PlayerSection:NewButton("Chams", "???", function()
     function CreateSG(name,parent,face)
     local SurfaceGui = Instance.new("SurfaceGui",parent)
