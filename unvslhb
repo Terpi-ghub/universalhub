@@ -6,7 +6,7 @@ local colors = {
     TextColor = Color3.fromRGB(230,230,230),
     ElementColor = Color3.fromRGB(18, 18, 18)
 }
-local Window = Library.CreateLib("Terp Hub", "Synapse")
+local Window = Library.CreateLib("Terp Hub", "Sentinel")
 game.StarterGui:SetCore("SendNotification", {
     Title = "Hello!";
     Text = "Terp Hub loaded.";
