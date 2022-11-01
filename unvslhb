@@ -1,12 +1,12 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local colors = {
-    SchemeColor = Color3.fromRGB(10,10,10),
-    Background = Color3.fromRGB(5, 5, 5),
-    Header = Color3.fromRGB(10, 10, 10),
-    TextColor = Color3.fromRGB(230,230,230),
-    ElementColor = Color3.fromRGB(18, 18, 18)
+        SchemeColor = Color3.fromRGB(27, 27, 27),
+        Background = Color3.fromRGB(10, 10, 10),
+        Header = Color3.fromRGB(5, 5, 5),
+        TextColor = Color3.fromRGB(255,255,255),
+        ElementColor = Color3.fromRGB(20, 20, 20)
 }
-local Window = Library.CreateLib("Terp Hub", "Sentinel")
+local Window = Library.CreateLib("Terp Hub", colors)
 game.StarterGui:SetCore("SendNotification", {
     Title = "Hello!";
     Text = "Terp Hub loaded.";
