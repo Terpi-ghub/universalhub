@@ -1,0 +1,73 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local colors = {
+    SchemeColor = Color3.fromRGB(10,10,10),
+    Background = Color3.fromRGB(5, 5, 5),
+    Header = Color3.fromRGB(10, 10, 10),
+    TextColor = Color3.fromRGB(230,230,230),
+    ElementColor = Color3.fromRGB(18, 18, 18)
+}
+local Window = Library.CreateLib("Terp Hub", colors)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Hello!";
+    Text = "Terp Hub loaded.";
+})
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Join the Discord";
+    Text = "https://discord.gg/JmJxFWTRFE";
+})
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Alert!";
+    Text = "This is only V1, dont expect big feutures.";
+})
+
+--Local Player
+local Player = Window:NewTab("#Player")
+local PlayerSection = Player:NewSection("#Player")
+
+PlayerSection:NewSlider("Walk Speed", "Changes your speed.", 500, 10, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("Jump Power", "Changes your jump power.", 500, 10, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlayerSection:NewTextBox("Teleport to", "Teleport to selected player.", function(plrtp)
+	local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local p2 = plrtp
+    local pos = p1.CFrame
+
+p1.CFrame = game.Players[p2].Character.HumanoidRootPart.CFrame
+end)
+
+local UI = Window:NewTab("#UI")
+local UISection = UI:NewSection("#UI")
+
+UISection:NewKeybind("Toggle UI Keybind", "Change keybind for toggling UI.", Enum.KeyCode.Q, function()
+    Library:ToggleUI()
+end)
+
+local Misc = Window:NewTab("#Misc")
+local MiscSection = Misc:NewSection("#Misc")
+
+MiscSection:NewToggle("Anti AFK", "Makes you not be kicked for idle.", function(state)
+    if state then
+        for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+            v:Disable()
+        end
+    else
+        for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+            v:Enable()
+        end
+    end
+end)
+
+MiscSection:NewButton("Infinite Yield", "Admin commands.", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+local Credits = Window:NewTab("#Credits")
+local CreditsSection = Credits:NewSection("#Credits")
+
+CreditsSection:NewLabel("Creator: MeetD3athNigth(User)")
+CreditsSection:NewLabel("UI: Kavo-UI-Library")
