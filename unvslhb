@@ -38,11 +38,6 @@ PlayerSection:NewTextBox("Teleport to", "Teleport to selected player.", function
     local pos = p1.CFrame
 
 p1.CFrame = game.Players[p2].Character.HumanoidRootPart.CFrame
-
-game.StarterGui:SetCore("SendNotification", {
-    Title = "Terp Hub";
-    Text = "Teleported, if not please check the username!";
-})
 end)
 
 PlayerSection:NewButton("Chams", "???", function()
@@ -95,6 +90,10 @@ UISection:NewKeybind("Toggle UI Keybind", "Change keybind for toggling UI.", Enu
 })
 end)
 
+UISection:NewSlider("FOV Changer", "Change your FOV.", 120, 20, function(s) -- 120 (MaxValue) | 20 (MinValue)
+    game.Workspace.CurrenctCamera.FieldOfView = 80
+end)
+
 local Misc = Window:NewTab("#Misc")
 local MiscSection = Misc:NewSection("#Misc")
 
@@ -104,7 +103,7 @@ MiscSection:NewToggle("Anti AFK", "Makes you not be kicked for idle.", function(
             v:Disable()
 	    game.StarterGui:SetCore("SendNotification", {
     Title = "Terp Hub";
-    Text = "Anti AFK Disabled!";
+    Text = "Anti AFK Enabled!";
 })
         end
     else
@@ -112,7 +111,7 @@ MiscSection:NewToggle("Anti AFK", "Makes you not be kicked for idle.", function(
             v:Enable()
 	    game.StarterGui:SetCore("SendNotification", {
     Title = "Terp Hub";
-    Text = "Anti AFK Enabled!";
+    Text = "Anti AFK Disabled!";
 })
         end
     end
