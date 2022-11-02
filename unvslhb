@@ -79,6 +79,19 @@ end
 end
 end)
 
+PlayerSection:NewSlider("FOV Changer", "Change your FOV.", 120, 20, function(s) -- 120 (MaxValue) | 20 (MinValue)
+    game.Workspace.CurrenctCamera.FieldOfView = 80
+end)
+
+PlayerSection:NewButton("Force Reset", "Reset your character.", function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+
+PlayerSection:NewButton("God Mode(WIP)", "Have infinite health.", function()
+    game.Players.LocalPlayer.Character.Humanoid.MaxHealth = 1000000000
+    game.Players.LocalPlayer.Character.Humanoid.Health = 1000000000
+end)
+
 local UI = Window:NewTab("#UI")
 local UISection = UI:NewSection("#UI")
 
@@ -88,10 +101,6 @@ UISection:NewKeybind("Toggle UI Keybind", "Change keybind for toggling UI.", Enu
     Title = "Terp Hub";
     Text = "Toggled UI!";
 })
-end)
-
-UISection:NewSlider("FOV Changer", "Change your FOV.", 120, 20, function(s) -- 120 (MaxValue) | 20 (MinValue)
-    game.Workspace.CurrenctCamera.FieldOfView = 80
 end)
 
 local Misc = Window:NewTab("#Misc")
