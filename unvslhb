@@ -1,12 +1,12 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local colors = {
-        SchemeColor = Color3.fromRGB(27, 27, 27),
+        SchemeColor = Color3.fromRGB(166, 71, 214),
         Background = Color3.fromRGB(10, 10, 10),
         Header = Color3.fromRGB(5, 5, 5),
         TextColor = Color3.fromRGB(255,255,255),
         ElementColor = Color3.fromRGB(20, 20, 20)
 }
-local Window = Library.CreateLib("Terp Hub", colors)
+local Window = Library.CreateLib("Terp Hub v1.2", colors)
 game.StarterGui:SetCore("SendNotification", {
     Title = "Hello!";
     Text = "Terp Hub loaded.";
@@ -38,6 +38,11 @@ PlayerSection:NewTextBox("Teleport to", "Teleport to selected player.", function
     local pos = p1.CFrame
 
 p1.CFrame = game.Players[p2].Character.HumanoidRootPart.CFrame
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Terp Hub";
+    Text = "Teleported, if not please check the username!";
+})
 end)
 
 PlayerSection:NewButton("Chams", "???", function()
@@ -53,6 +58,11 @@ PlayerSection:NewButton("Chams", "???", function()
     local Frame = Instance.new("Frame",SurfaceGui)
 	Frame.BackgroundColor3 = Color3.fromRGB(85, 170, 255)
 	Frame.Size = UDim2.new(1,0,1,0)
+	
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Terp Hub";
+    Text = "Chams Activated! Please rejoin to turn off.";
+})
 end
  
 while wait(1) do
@@ -79,6 +89,10 @@ local UISection = UI:NewSection("#UI")
 
 UISection:NewKeybind("Toggle UI Keybind", "Change keybind for toggling UI.", Enum.KeyCode.Q, function()
     Library:ToggleUI()
+    game.StarterGui:SetCore("SendNotification", {
+    Title = "Terp Hub";
+    Text = "Toggled UI!";
+})
 end)
 
 local Misc = Window:NewTab("#Misc")
@@ -88,10 +102,18 @@ MiscSection:NewToggle("Anti AFK", "Makes you not be kicked for idle.", function(
     if state then
         for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
             v:Disable()
+	    game.StarterGui:SetCore("SendNotification", {
+    Title = "Terp Hub";
+    Text = "Anti AFK Disabled!";
+})
         end
     else
         for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
             v:Enable()
+	    game.StarterGui:SetCore("SendNotification", {
+    Title = "Terp Hub";
+    Text = "Anti AFK Enabled!";
+})
         end
     end
 end)
