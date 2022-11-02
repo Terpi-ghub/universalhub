@@ -136,3 +136,12 @@ local CreditsSection = Credits:NewSection("#Credits")
 
 CreditsSection:NewLabel("Creator: MeetD3athNigth(User)")
 CreditsSection:NewLabel("UI: Kavo-UI-Library")
+
+if game.PlaceID == 155615604 then
+
+local PL = Window:NewTab("#Prison Life")
+local PLSection = PL:NewSection("#Prison Life")
+
+PLSection:NewButton("Flight", "Activate Fly GUI.", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/fPtT2Q1F", true))()
+end)
